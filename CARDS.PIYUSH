@@ -1,0 +1,259 @@
+<!--THANK YOU SO MUSH FOR VISITING-->>
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Accordions 01</title>
+    <style>
+      
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Inter, sans-serif;
+  height: 100vh;
+  color: white;
+  background-color: #e9e9f0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+img {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.container {
+  width: 100%;
+  width: 820px;
+  height: 340px;
+  display: flex;
+  gap: 10px;
+  margin-inline: 50px;
+}
+
+.card {
+  min-width: 70px;
+  height: 100%;
+  border-radius: 30px;
+  overflow: hidden;
+
+  display: flex;
+  align-items: flex-end;
+  flex-grow: 1;
+  cursor: pointer;
+  position: relative;
+  transition: flex-grow 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+
+  --transition-timing: 0.35s;
+}
+
+.card:hover {
+  flex-grow: 7;
+}
+
+.card > .background {
+  position: absolute;
+  inset: 0;
+  object-fit: cover;
+  object-position: center;
+  filter: brightness(0.4);
+  z-index: -1;
+  transition: var(--transition-timing) ease;
+}
+.card:hover > .background {
+  filter: brightness(1);
+}
+
+.card > .card-content {
+  display: flex;
+  align-items: center;
+  position: absolute;
+  left: 10px;
+  right: 10px;
+  bottom: 20px;
+  overflow: hidden;
+  transition: var(--transition-timing);
+  z-index: 10;
+}
+.card:hover > .card-content {
+  inset: 20px;
+  top: auto;
+}
+
+.card-content > * {
+  transition: var(--transition-timing);
+}
+
+.card-content > .profile-image {
+  min-width: 50px;
+  max-width: 50px;
+  height: 50px;
+  border: 1px solid white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  overflow: hidden;
+}
+.card:hover .profile-image {
+  border: 1px solid rgb(110, 252, 205);
+}
+.profile-image > svg {
+  stroke: #fefefe;
+}
+.card:hover .profile-image > svg {
+  stroke: rgb(110, 252, 205);
+}
+
+.card-content > .title {
+  white-space: pre;
+  margin-left: 10px;
+  translate: 0 100%;
+  opacity: 0;
+}
+.card:hover .title {
+  opacity: 1;
+  translate: 0 0;
+}
+
+.card > .backdrop {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 100px;
+  z-index: 0;
+  background: linear-gradient(to bottom, transparent, rgba(0, 0, 0, 0.7));
+}
+    </style>
+    <script>
+      const cardsContainer = document.querySelector(".container");
+
+cardsContainer.addEventListener("click", (e) => {
+  const target = e.target.closest(".card");
+
+  if (!target) return;
+
+  cardsContainer.querySelectorAll(".card").forEach((card) => {
+    card.classList.remove("active");
+  });
+
+  target.classList.add("active");
+});
+    </script>
+  </head>
+  <body>
+    <div class="container">
+      <div class="card">
+        <img class="background" src="https://cdn-www.bluestacks.com/bs-images/com.pubg_.newstate.jpg " alt="">
+
+        <div class="card-content">
+          <div class="profile-image">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-gamepad-2">
+              <line x1="6" x2="10" y1="11" y2="11" />
+              <line x1="8" x2="8" y1="9" y2="13" />
+              <line x1="15" x2="15.01" y1="12" y2="12" />
+              <line x1="18" x2="18.01" y1="10" y2="10" />
+              <path d="M17.32 5H6.68a4 4 0 0 0-3.978 3.59c-.006.052-.01.101-.017.152C2.604 9.416 2 14.456 2 16a3 3 0 0 0 3 3c1 0 1.5-.5 2-1l1.414-1.414A2 2 0 0 1 9.828 16h4.344a2 2 0 0 1 1.414.586L17 18c.5.5 1 1 2 1a3 3 0 0 0 3-3c0-1.545-.604-6.584-.685-7.258-.007-.05-.011-.1-.017-.151A4 4 0 0 0 17.32 5z" />
+            </svg>
+          </div>
+
+          <h3 class="title">PUBG new state</h3>
+        </div>
+        <div class="backdrop"></div>
+      </div>
+
+      <div class="card">
+        <img class="background" src="https://store-images.s-microsoft.com/image/apps.2678.14492077886571533.a48e9a4a-99a7-44a9-9d97-9e8e72220a7c.6b98c506-61b7-4126-80b6-449f2ff0fb96?q=90&w=480&h=270" alt="">
+
+        <div class="card-content">
+          <div class="profile-image">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-gamepad-2">
+              <line x1="6" x2="10" y1="11" y2="11" />
+              <line x1="8" x2="8" y1="9" y2="13" />
+              <line x1="15" x2="15.01" y1="12" y2="12" />
+              <line x1="18" x2="18.01" y1="10" y2="10" />
+              <path d="M17.32 5H6.68a4 4 0 0 0-3.978 3.59c-.006.052-.01.101-.017.152C2.604 9.416 2 14.456 2 16a3 3 0 0 0 3 3c1 0 1.5-.5 2-1l1.414-1.414A2 2 0 0 1 9.828 16h4.344a2 2 0 0 1 1.414.586L17 18c.5.5 1 1 2 1a3 3 0 0 0 3-3c0-1.545-.604-6.584-.685-7.258-.007-.05-.011-.1-.017-.151A4 4 0 0 0 17.32 5z" />
+            </svg>
+          </div>
+
+          <h3 class="title">Minecraft</h3>
+        </div>
+        <div class="backdrop"></div>
+      </div>
+
+      <div class="card">
+        <img class="background" src="https://www.cnet.com/a/img/resize/8bc1fe51f38b84a7ee99cae6d2cdee3709c6db9d/hub/2021/09/02/1511ef05-2457-4272-918d-6719d4897e65/beta-key-art-valorant.jpg?auto=webp&fit=crop&height=675&width=1200" alt="">
+
+        <div class="card-content">
+          <div class="profile-image">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-gamepad-2">
+              <line x1="6" x2="10" y1="11" y2="11" />
+              <line x1="8" x2="8" y1="9" y2="13" />
+              <line x1="15" x2="15.01" y1="12" y2="12" />
+              <line x1="18" x2="18.01" y1="10" y2="10" />
+              <path d="M17.32 5H6.68a4 4 0 0 0-3.978 3.59c-.006.052-.01.101-.017.152C2.604 9.416 2 14.456 2 16a3 3 0 0 0 3 3c1 0 1.5-.5 2-1l1.414-1.414A2 2 0 0 1 9.828 16h4.344a2 2 0 0 1 1.414.586L17 18c.5.5 1 1 2 1a3 3 0 0 0 3-3c0-1.545-.604-6.584-.685-7.258-.007-.05-.011-.1-.017-.151A4 4 0 0 0 17.32 5z" />
+            </svg>
+          </div>
+
+          <h3 class="title">Valorent</h3>
+        </div>
+        <div class="backdrop"></div>
+      </div>
+
+      <div class="card">
+        <img class="background" src="https://c4.wallpaperflare.com/wallpaper/878/70/356/gta-vi-grand-theft-auto-6-grand-theft-auto-pc-gaming-video-game-art-hd-wallpaper-preview.jpg" alt="">
+
+        <div class="card-content">
+          <div class="profile-image">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-gamepad-2">
+              <line x1="6" x2="10" y1="11" y2="11" />
+              <line x1="8" x2="8" y1="9" y2="13" />
+              <line x1="15" x2="15.01" y1="12" y2="12" />
+              <line x1="18" x2="18.01" y1="10" y2="10" />
+              <path d="M17.32 5H6.68a4 4 0 0 0-3.978 3.59c-.006.052-.01.101-.017.152C2.604 9.416 2 14.456 2 16a3 3 0 0 0 3 3c1 0 1.5-.5 2-1l1.414-1.414A2 2 0 0 1 9.828 16h4.344a2 2 0 0 1 1.414.586L17 18c.5.5 1 1 2 1a3 3 0 0 0 3-3c0-1.545-.604-6.584-.685-7.258-.007-.05-.011-.1-.017-.151A4 4 0 0 0 17.32 5z" />
+            </svg>
+          </div>
+
+          <h3 class="title">GTA</h3>
+        </div>
+        <div class="backdrop"></div>
+      </div>
+
+      <div class="card">
+        <img class="background" src="https://i.pinimg.com/originals/53/39/f2/5339f2ef141a6afee893411fffcc913a.jpg" alt="">
+
+        <div class="card-content">
+          <div class="profile-image">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-gamepad-2">
+              <line x1="6" x2="10" y1="11" y2="11" />
+              <line x1="8" x2="8" y1="9" y2="13" />
+              <line x1="15" x2="15.01" y1="12" y2="12" />
+              <line x1="18" x2="18.01" y1="10" y2="10" />
+              <path d="M17.32 5H6.68a4 4 0 0 0-3.978 3.59c-.006.052-.01.101-.017.152C2.604 9.416 2 14.456 2 16a3 3 0 0 0 3 3c1 0 1.5-.5 2-1l1.414-1.414A2 2 0 0 1 9.828 16h4.344a2 2 0 0 1 1.414.586L17 18c.5.5 1 1 2 1a3 3 0 0 0 3-3c0-1.545-.604-6.584-.685-7.258-.007-.05-.011-.1-.017-.151A4 4 0 0 0 17.32 5z" />
+            </svg>
+          </div>
+
+          <h3 class="title">BGMI</h3>
+        </div>
+        <div class="backdrop"></div>
+      </div>
+    </div>
+  </body>
+</html>
+
+
+
+<!--THANK YOU SO MUSH FOR VISITING-->>
